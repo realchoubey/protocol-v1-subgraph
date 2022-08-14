@@ -1,5 +1,5 @@
 type ExampleEntity @entity {
   id: ID!
   count: BigInt!
-  winners: [Bytes]! # address[]
+  winners: [Bytes!]! # address[]
 }
