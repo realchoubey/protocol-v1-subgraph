@@ -1,0 +1,23 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: good_ghosting
+    network: mainnet
+    source:
+      address: "0xffd343a7f20093e9bcefe45af552c1718059329e"
+      abi: good_ghosting
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - WinnersAnnouncement
+      abis:
+        - name: good_ghosting
+          file: ./abis/good_ghosting.json
+      eventHandlers:
+        - event: WinnersAnnouncement(address[])
+          handler: handleWinnersAnnouncement
+      file: ./src/good-ghosting.ts
